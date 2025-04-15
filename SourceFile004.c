@@ -7,6 +7,8 @@
 task main()
 {
 /*
+
+test
 motor[port1] = 127;
 motor[port3] = 127;
 motor[port10] = 127;
