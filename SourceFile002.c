@@ -6,6 +6,31 @@
 
 task main()
 {
+
+/*	int threshold = 10; // create and set variable 'threshold' to 10 (will be distance for sonarSensor)
+	motor[port1]=100;
+	motor[port10]=-100;
+	wait1Msec(5000);
+
+	while(SensorValue(sonarInput) > 90){
+		motor[port1]=100;
+		motor[port10]=100;
+	}
+
+	wait1Msec(130);
+	motor[port1] = 10;
+	motor[port10] = 10;
+
+	while(SensorValue(sonarInput) > threshold || SensorValue(sonarInput) == -1)   // while the sonarSensor sensor is reading in values larger than our
+	{                                                                   // threshold, or reading out of range (-1 = no object in sight)
+		motor[port1] = 75;   // set port2 to speed 75
+		motor[port10] = -75;   // set port3 to speed 75
+	}
+	wait1Msec(100);                            // stop the robot:
+	motor[port1] = 0;      // set port2 to speed 0
+	motor[port10] = 0;      // set port3 to speed 0
+*/	
+	
 /*
 motor[port1] = 127;
 motor[port3] = 127;
