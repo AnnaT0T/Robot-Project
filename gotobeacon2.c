@@ -140,8 +140,8 @@ task main(){
 	stop_level = 6000;//used in move
 	expose_time = 5; // expose time was changed from 3ms to 5ms (3ms in easyC -> 5ms in RobotC)
 	steer_sensitivity = 20;//used in move
-	forward_speed = 70;//forward speed , used in move
-	slow_speed = 40;//slow speed , used in move
+	forward_speed = 80;//forward speed , used in move
+	slow_speed = 30;//slow speed , used in move
 	spin_speed = 50;//spin speed (for searching mode),used in move
 	SensorValue[digital10] = freq;// turn to 1KHz(red beacon)
 	int state = 1;
@@ -158,7 +158,7 @@ task main(){
 			motor[port10] = 0;
 			motor[port1] = -50;
 			motor[port10] = 50;
-			wait1Msec(250);
+			wait1Msec(280);
 			motor[port1] = 0;
 			motor[port10] = 0;
 			state = 2;
@@ -166,19 +166,19 @@ task main(){
 	}
 	delay(1000);
 	while (true){
-		motor[armMotor] = -80;  // lower arm
-		wait1Msec(400);
+		motor[armMotor] = 127;  // lower arm
+		wait1Msec(1000);
 		motor[armMotor] = 0;
 		wait1Msec(300);
-		motor[armMotor] = 80;   // raise arm
-		wait1Msec(400);
+		motor[armMotor] = -127;   // raise arm
+		wait1Msec(900);
 		motor[armMotor] = 0;
 		ReadPD();
 		//		Find_max();
 		if (PD_sum <= 700) {
 			motor[port1] = -50;
 			motor[port10] = 50;
-			wait1Msec(3000);
+			wait1Msec(1500);
 			break;
 		}
 
@@ -194,28 +194,39 @@ task main(){
 		{
 			motor[port1] = -50;
 			motor[port10] = 50;
-			wait1Msec(250);
+			wait1Msec(280);
 			motor[port1] = 0;
 			motor[port10] = 0;
-			motor[armMotor] = -80;   // Lower arm to press
-			wait1Msec(400);             // Wait 1000ms
+			motor[armMotor] = 127;   // Lower arm to press
+			wait1Msec(1000);             // Wait 1000ms
 			motor[armMotor] = 0;
 			break;
 		}
 	}
 
 	while (true){
-		if (SensorValue[sonarInput] < 60) {
-			motor[port1] = 50;
-			motor[port10] = -50;
-			wait1Msec(1500);
+		/*if (SensorValue[sonarInput] > 15 || SensorValue[sonarInput] < 30){
+		//	motor[port1] = 50;
+		//	motor[port10] = -50;
+		//	wait1Msec(1500);
 			motor[port1] = 40;
 			motor[port10] = 40;
 			wait1Msec(1000);
+			motor[port1] = -80;
+			motor[port10] = 80;
 		}
 		else {
 			motor[port1] = -80;
 			motor[port10] = 80;
+		}*/
+		if (SensorValue[sonarInput] > 15 && SensorValue[sonarInput] < 30) {
+			motor[port1] = 40;
+			motor[port10] = 40;
+			wait1Msec(2000);
+			motor[port1] = -80;
+			motor[port10] = 80;
+			wait1Msec(5000);
 		}
+
 	}
 }
