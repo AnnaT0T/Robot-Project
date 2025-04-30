@@ -227,6 +227,27 @@ task main(){
 			motor[port10] = 80;
 			wait1Msec(5000);
 		}
+		
+		/* idea on how to exit
+		if (SensorValue[sonarInput] >= 15 && SensorValue[sonarInput] <= 30) {
+			motor[port1] = 50;
+   			motor[port10] = -50;
+      			wait1Msec(1500);
+   			motor[port1] = 40;
+			motor[port10] = 40;
+   			wait1Msec(2000);
+		}
+  		else if (SensorValue[sonarInput] > 0 && SensorValue[sonarInput] < 15) {
+    		// wave hand in front of sensor to stop robot
+			motor[port1] = 0;
+   			motor[port10] = 0;
+      			break;
+    		}
+      		else {
+			motor[port1] = -80;
+			motor[port10] = 80;
+		}
+		*/
 
 	}
 }
